@@ -54,7 +54,5 @@ jobs:
 
           run: |
 
-            version=$(cat VERSION)
-
-            echo "Current version: $version"
+           echo "Current version: $stand"
 
