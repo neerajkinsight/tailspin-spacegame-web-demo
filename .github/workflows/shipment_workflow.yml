@@ -4,7 +4,7 @@ concurrency:
 on:
   push:
     branches: [ main ]
-  schedule:
+  schedule: ## Schedule the job to run at every 5th minute
     - cron: '*/5 * * * *'
   workflow_dispatch:
    inputs:
@@ -56,5 +56,5 @@ jobs:
 
           run: |
 
-           echo "Current stand: ${{ github.event.inputs.stand || 'NK' }}"
+           echo "Current updated stand: ${{ github.event.inputs.stand || 'NK' }}"
 
