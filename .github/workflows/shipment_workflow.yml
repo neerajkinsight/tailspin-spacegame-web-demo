@@ -41,21 +41,20 @@ on:
         - Demo
 
 jobs:
-  call-template:
-    uses: .github/workflows/dotnet.yml@main
-    with:
-      test_category: ${{ github.event.inputs.test_category || 'API' }}
-      stand: ${{ github.event.inputs.stand || 'Ci' }}
-      working_directory: ${{ 'QaPlaywright.Shipment.Tests' }}
-      number_of_trends: ${{ '5' }}
-      azure_key_vault_url: ${{ 'https://prod-kv-cus-atst-01.vault.azure.net/' }}
-      cosmos_db_resource_url1: ${{ 'https://qa-cosmos-cus-shipment-01.documents.azure.com:443/' }}          
-    secrets:
-      ATST_AZURE_CLIENT_ID: ${{ secrets.ATST_AZURE_CLIENT_ID }}
-      ATST_AZURE_TENANT_ID: ${{ secrets.ATST_AZURE_TENANT_ID }}
-      ATST_AZURE_CLIENT_SECRET: ${{ secrets.ATST_AZURE_CLIENT_SECRET }}
-      JF_PASSWORD: ${{ secrets.JFROG_ACCESS_TOKEN  }}
-      JF_URL: ${{ vars.JFROG_URL }}artifactory/api/nuget/v3/qa-playwright-core-nuget/index.json
-      JF_USER: ${{ secrets.JFROG_USER }}
-      DELINEA_USERNAME: ${{ secrets.DELINEA_USERNAME }}
-      DELINEA_PASSWORD: ${{ secrets.DELINEA_PASSWORD }}
+  # This workflow contains a single job called "build"
+  build:
+    name: build dotnet web app
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+
+        - name: Get version
+
+          run: |
+
+            version=$(cat VERSION)
+
+            echo "Current version: $version"
+
