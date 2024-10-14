@@ -42,7 +42,7 @@ on:
 
 jobs:
   call-template:
-    uses: WernerDevOps/qa-ATST-Testing-Tools/.github/workflows/base_api_workflow.yml@main
+    uses: .github/workflows/dotnet.yml@main
     with:
       test_category: ${{ github.event.inputs.test_category || 'API' }}
       stand: ${{ github.event.inputs.stand || 'Ci' }}
