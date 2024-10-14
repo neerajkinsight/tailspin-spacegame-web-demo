@@ -27,6 +27,8 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
+      - run: |
+          echo "The stand is: ${{ stand }}"
       - run: dotnet restore
         working-directory: Tailspin.SpaceGame.Web
       - run: dotnet build
