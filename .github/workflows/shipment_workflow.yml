@@ -4,8 +4,8 @@ concurrency:
 on:
   push:
     branches: [ main ]
-  ##schedule: ## Schedule the job to run at every 5th minute
-    ##- cron: '*/5 * * * *'
+  schedule: ## Schedule the job to run at every 5th minute
+    - cron: '*/5 * * * *'
   workflow_dispatch:
    inputs:
       test_category:
